@@ -2,12 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <!-- Custom SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Responsive Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>led-brand-website</title>
+    
+    <!-- Mobile Browser Theme Color -->
+    <meta name="theme-color" content="#020502" />
+    
+    <!-- SEO Meta Description -->
+    <meta name="description" content="Micro Vision is a professional LED display solution provider in Khopoli, Maharashtra. We specialize in LED display boards, video walls, industrial display boards, and wedding LED displays." />
+    <meta name="keywords" content="LED display, Video Walls, Industrial Display, Borewell panel repair, Khopoli LED, Micro Vision" />
+    
+    <!-- Website Title -->
+    <title>Micro Vision | Innovative Tech Solutions</title>
+
+    <!-- Google Fonts (Inter for normal text, JetBrains Mono for the tech/coding text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   </head>
-  <body>
+  
+  <!-- Added default black background to prevent white flashes during page load -->
+  <body class="bg-[#020502] text-white antialiased selection:bg-orange-500 selection:text-black m-0 p-0 overflow-x-hidden">
+    
+    <!-- React Mount Point -->
     <div id="root"></div>
+    
+    <!-- Vite Entry Point -->
     <script type="module" src="/src/main.jsx"></script>
+    
   </body>
 </html>

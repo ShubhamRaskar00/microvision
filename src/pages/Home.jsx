@@ -120,9 +120,9 @@ export default function Home() {
             transition={{ duration: 1.2, type: "spring", bounce: 0.4 }}
           >
             <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter flex flex-col md:flex-row items-center justify-center md:gap-4 leading-none mb-4">
-              <span className="text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]">Micro</span>
+              <span className="text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]">MICRO</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 to-green-500 drop-shadow-[0_0_30px_rgba(249,115,22,0.3)]">
-                Vision
+                VISION
               </span>
             </h1>
           </motion.div>
