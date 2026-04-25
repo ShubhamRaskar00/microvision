@@ -6,8 +6,10 @@ import 'swiper/css/pagination';
 
 export default function Gallery() {
   const projects = [
-    { title: "Outdoor Industrial Double-Sided", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1DI766LoZKlqO58_RsPg3wsIUJ71uK7zV8Q&s" },
-    { title: "Indoor P2.5 High-Def Display", img: "https://image.made-in-china.com/202f0j00clYbTqFtaCkU/High-Resolution-Wall-Fixed-Full-Color-Indoor-LED-Display-P2-5-for-Exhibition.webp" },
+    { title: "Red LED Display Board", img: "/src/assets/2x20Feet_red.jpg" },
+    { title: "Green  LED Display", img: "/src/assets/green-board.png" },
+    { title: "Thee Color LED Display", img: "/src/assets/Three_color_Display.png" },
+    { title: "Multi Color LED Display", img: "/src/assets/multicolor-board.jpg" },
     { title: "Custom E-Commerce Platform", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000" },
     { title: "Borewell Panel Repair", img: "https://submersibleshop.com/cdn/shop/files/borewelldryrunmotorstarterpanel.png" },
   ];

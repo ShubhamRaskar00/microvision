@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
+import { Link } from 'react-router-dom';
 
 export default function Careers() {
   const jobs = [
@@ -27,9 +28,12 @@ export default function Careers() {
               <h2 className="text-3xl font-bold text-white mb-4 leading-tight">{job.title}</h2>
               <p className="text-gray-400 mb-8">{job.desc}</p>
               
+              <Link to="/requirements">
               <button className="text-sm font-bold text-white border-b border-transparent hover:border-white transition-colors pb-1">
                 View Requirements -{'>'}
               </button>
+              </Link>
+              
             </motion.div>
           ))}
         </div>

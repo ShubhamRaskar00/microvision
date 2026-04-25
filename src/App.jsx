@@ -12,6 +12,7 @@ import Calculator from './pages/Calculator';
 import Gallery from './pages/Gallery';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import Requirements from './pages/Requirements';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,6 +23,7 @@ const Navbar = () => {
     { name: 'HOME', path: '/' },
     { name: 'CALCULATOR', path: '/calculator' },
     { name: 'GALLERY', path: '/gallery' },
+    { name: 'CAREERS', path: '/careers' },
     { name: 'CONTACT', path: '/contact' },
   ];
 
@@ -140,6 +142,7 @@ const AnimatedRoutes = () => {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/requirements" element={<Requirements />} />
       </Routes>
     </AnimatePresence>
   );
