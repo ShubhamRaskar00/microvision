@@ -1,47 +1,48 @@
+import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
+import api from '../api';
 
 export default function Gallery() {
-  const projects = [
-    { title: "Red LED Display Board", img: "/src/assets/2x20Feet_red.jpg" },
-    { title: "Green  LED Display", img: "/src/assets/green-board.png" },
-    { title: "Thee Color LED Display", img: "/src/assets/Three_color_Display.png" },
-    { title: "Multi Color LED Display", img: "/src/assets/multicolor-board.jpg" },
-    { title: "Custom E-Commerce Platform", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000" },
-    { title: "Borewell Panel Repair", img: "https://submersibleshop.com/cdn/shop/files/borewelldryrunmotorstarterpanel.png" },
-  ];
+  const [projects, setProjects] = useState([]);
+
+    useEffect(() => {
+    api.get('/gallery')
+      .then(res => {setProjects(res.data); })
+      .catch(err => console.error(err));
+  }, []);
 
   return (
-    <div className="min-h-screen pt-32 pb-12 px-6 text-white overflow-hidden">
-      <h1 className="text-5xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+    <div className="min-h-screen pt-32 pb-12 px-6 text-white overflow-hidden pointer-events-auto">
+      <h1 className="text-5xl font-black text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-green-500 uppercase">
         Our Projects
       </h1>
       
-      <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={'auto'}
-        coverflowEffect={{
-          rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true,
-        }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        pagination={true}
-        modules={[EffectCoverflow, Pagination, Autoplay]}
-        className="w-full max-w-5xl py-10"
-      >
-        {projects.map((proj, idx) => (
-          <SwiperSlide key={idx} className="max-w-[400px] h-[500px] rounded-2xl overflow-hidden relative group">
-            <img src={proj.img} alt={proj.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent flex items-end p-6">
-              <h3 className="text-2xl font-bold drop-shadow-lg">{proj.title}</h3>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {projects.length > 0 && (
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={'auto'}
+          coverflowEffect={{ rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          pagination={true}
+          modules={[EffectCoverflow, Pagination, Autoplay]}
+          className="w-full max-w-5xl py-10"
+        >
+          {projects.map((proj) => (
+            <SwiperSlide key={proj._id} className="max-w-[400px] h-[500px] rounded-2xl overflow-hidden relative group">
+              <img src={proj.img} alt={proj.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent flex items-end p-6">
+                <h3 className="text-2xl font-bold drop-shadow-lg">{proj.title}</h3>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Toaster } from 'react-hot-toast';
 
 // Import your components and pages
 import ThreeBackground from './components/ThreeBackground';
@@ -14,6 +15,12 @@ import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import Requirements from './pages/Requirements';
 
+import Products from './pages/Products';
+import Admin from './pages/Admin';
+import ProductDetails from './pages/ProductDetails';
+import InteractiveLens from './components/InteractiveLens'; // ADD THIS IMPORT
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 // Inside App.jsx -> Replace old Navbar with this:
@@ -21,6 +28,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const links = [
     { name: 'HOME', path: '/' },
+    { name: 'PRODUCTS', path: '/products' }, // Added Products
     { name: 'CALCULATOR', path: '/calculator' },
     { name: 'GALLERY', path: '/gallery' },
     { name: 'CAREERS', path: '/careers' },
@@ -138,11 +146,14 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/product/:id" element={<ProductDetails />} /> {/* NEW SEO ROUTE */}
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/requirements" element={<Requirements />} />
+        <Route path="/admin" element={<Admin />} /> {/* Hidden Admin Route */}
       </Routes>
     </AnimatePresence>
   );
@@ -168,6 +179,8 @@ export default function App() {
       <div className="relative font-sans text-gray-100 min-h-screen selection:bg-orange-500 selection:text-black">
         {/* Global 3D Physics Background */}
         <ThreeBackground />
+        <InteractiveLens />
+        <Toaster position="top-right" reverseOrder={false} />
         
         {/* Navigation Layer */}
         <Navbar />
