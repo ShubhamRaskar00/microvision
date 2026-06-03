@@ -190,6 +190,7 @@ export default function App() {
           <AnimatedRoutes />
           <Footer />
         </main>
+        <Link to="/admin" className="text-white absolute bottom-0 right-4 z-50 text-[1px]">admin</Link>
       </div>
     </Router>
   );
