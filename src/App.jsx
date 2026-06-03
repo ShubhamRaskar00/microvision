@@ -1,13 +1,14 @@
-import { useEffect, useState  } from 'react';
+import { useEffect, useState, Suspense, lazy  } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Toaster } from 'react-hot-toast';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 // Import your components and pages
-import ThreeBackground from './components/ThreeBackground';
+const ThreeBackground = lazy(() => import('./components/ThreeBackground'));
 import Home from './pages/Home';
 import Calculator from './pages/Calculator';
 import Gallery from './pages/Gallery';
@@ -18,7 +19,7 @@ import Requirements from './pages/Requirements';
 import Products from './pages/Products';
 import Admin from './pages/Admin';
 import ProductDetails from './pages/ProductDetails';
-import InteractiveLens from './components/InteractiveLens'; // ADD THIS IMPORT
+const InteractiveLens = lazy(() => import('./components/InteractiveLens'));
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -175,9 +176,14 @@ export default function App() {
   }, []);
 
   return (
+    <HelmetProvider>
     <Router>
+      <Helmet>
+          <link rel="canonical" href="https://www.microvision.shop/" />
+        </Helmet>
       <div className="relative font-sans text-gray-100 min-h-screen selection:bg-orange-500 selection:text-black">
         {/* Global 3D Physics Background */}
+        {/* Suspense tells React not to block the website while 3D is loading */}
         <ThreeBackground />
         <InteractiveLens />
         <Toaster position="top-right" reverseOrder={false} />
@@ -193,5 +199,6 @@ export default function App() {
         <Link to="/admin" className="text-white absolute bottom-0 right-4 z-50 text-[1px]">admin</Link>
       </div>
     </Router>
+    </HelmetProvider>
   );
 }
