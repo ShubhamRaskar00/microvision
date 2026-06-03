@@ -72,7 +72,7 @@ export default function ProductDetails() {
             
             {/* Left Side - Product Image */}
             <div className="bg-black/50 border border-white/10 rounded-3xl overflow-hidden p-4 h-max">
-              <img src={product.image} alt={product.name} className="w-full rounded-2xl object-cover aspect-square" />
+              <img src={product.image.replace('/upload/', '/upload/f_auto,q_auto/')} alt={product.name} className="w-full rounded-2xl object-cover aspect-square" />
             </div>
 
             {/* Right Side - Details & Form */}

@@ -68,7 +68,7 @@ export default function Products() {
                 {/* Clicking image or text takes you to SEO optimized single product page */}
                 <Link to={`/product/${product._id}`}>
                   <div className="h-48 overflow-hidden bg-gray-900">
-                    <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <img src={product.image.replace('/upload/', '/upload/f_auto,q_auto/')} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   </div>
                   <div className="p-6 pb-0">
                     <span className="text-xs font-mono text-orange-400 border border-orange-400/30 px-2 py-1 rounded-full">{product.category}</span>
