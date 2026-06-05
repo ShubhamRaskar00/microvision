@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Toaster } from 'react-hot-toast';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Import your components and pages
 const ThreeBackground = lazy(() => import('./components/ThreeBackground'));
@@ -187,6 +188,7 @@ export default function App() {
         <ThreeBackground />
         <InteractiveLens />
         <Toaster position="top-right" reverseOrder={false} />
+        <SpeedInsights />
         
         {/* Navigation Layer */}
         <Navbar />
