@@ -20,7 +20,6 @@ import Requirements from './pages/Requirements';
 import Products from './pages/Products';
 import Admin from './pages/Admin';
 import ProductDetails from './pages/ProductDetails';
-const InteractiveLens = lazy(() => import('./components/InteractiveLens'));
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -186,7 +185,6 @@ export default function App() {
         {/* Global 3D Physics Background */}
         {/* Suspense tells React not to block the website while 3D is loading */}
         <ThreeBackground />
-        <InteractiveLens />
         <Toaster position="top-right" reverseOrder={false} />
         <SpeedInsights />
         
